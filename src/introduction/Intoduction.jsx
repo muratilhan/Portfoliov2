@@ -26,10 +26,10 @@ const Intoduction = () => {
             I enjoy keeping up with new technologies and strive to expand my knowledge. 
             I believe in the power of continuous learning and am always eager to explore new technologies to enhance my skills.
           </p>
-          <ul>
-            <a href="https://github.com/muratilhan" target='_blank'><li><i class="fa-brands fa-github"></i></li></a>
-            <a href="https://www.linkedin.com/in/murat-ilhan-2762b8219/" target='_blank'><li><i class="fa-brands fa-linkedin"></i></li></a>
-            <a href="https://www.instagram.com/" target='_blank'><li><i class="fa-brands fa-instagram"></i></li></a>
+          <ul className='intro-icon-container'>
+            <a href="https://github.com/muratilhan" target='_blank'><li><i className="fa-brands fa-github"></i></li></a>
+            <a href="https://www.linkedin.com/in/murat-ilhan-2762b8219/" target='_blank'><li><i className="fa-brands fa-linkedin"></i></li></a>
+            <a href="https://www.instagram.com/" target='_blank'><li><i className="fa-brands fa-instagram"></i></li></a>
           </ul>
           <img src={photo} alt="" />
         </div>

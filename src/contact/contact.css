@@ -14,21 +14,24 @@
     width: 80%;
     flex-direction: column;
     display: flex;
-    & ul{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-        & li {
-            font-size: 28px;
-            padding: 1rem;
-            list-style: none;
-        }
-    }
-    & p {
-        padding-bottom: 2rem;
-    }
+    
 }
+.contact-main ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    
+}
+.contact-main ul li {
+    font-size: 28px;
+    padding: 1rem;
+    list-style: none;
+}
+.contact-main ul li p {
+    padding-bottom: 2rem;
+}
+
 .contact-main ul a:nth-child(1){
     color:rgb(225, 0, 255)
 }
