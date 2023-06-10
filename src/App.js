@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import Intoduction from './introduction/Intoduction';
+import Projects from './projects/Projects';
+import Nav from './nav/Nav';
+import SkillsAndTechs from './skill&Tech/SkillsAndTechs';
+import Contact from './contact/Contact';
+import PopUp from './pop-up/PopUp';
+import { useState } from 'react';
 
 function App() {
+
+  const [modal, setModal] = useState(false);
+  const [imgSource, setImgSource] = useState("");
+  const toggleModal = () => {
+    setModal(!modal);
+  };
+
+  if(modal) return <PopUp imgSource={imgSource} toggleModal={()=>toggleModal()}></PopUp>
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Nav></Nav>
+        <Intoduction ></Intoduction>
+        <Projects setImgSource={setImgSource} toggleModal={toggleModal}></Projects>
+        <SkillsAndTechs></SkillsAndTechs>
+        <Contact></Contact>
     </div>
   );
 }

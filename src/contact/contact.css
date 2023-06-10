@@ -1,0 +1,43 @@
+.contact-container{
+    width: 100%;
+    color:white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contact-main{
+    height: auto;
+    padding-top: 0.5rem;
+    border-top: 1px solid grey;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    flex-direction: column;
+    display: flex;
+    & ul{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        & li {
+            font-size: 28px;
+            padding: 1rem;
+            list-style: none;
+        }
+    }
+    & p {
+        padding-bottom: 2rem;
+    }
+}
+.contact-main ul a:nth-child(1){
+    color:rgb(225, 0, 255)
+}
+.contact-main ul a:nth-child(2){
+    color:rgb(0, 68, 255)
+}
+.contact-main ul a:nth-child(3){
+    color:rgb(255, 0, 128)
+}
+.contact-main ul a:nth-child(4){
+    color:rgb(255, 0, 0)
+}
