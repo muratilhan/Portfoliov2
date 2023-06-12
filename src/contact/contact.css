@@ -28,7 +28,8 @@
     padding: 1rem;
     list-style: none;
 }
-.contact-main ul li p {
+.contact-main  p {
+    margin: 0;
     padding-bottom: 2rem;
 }
 

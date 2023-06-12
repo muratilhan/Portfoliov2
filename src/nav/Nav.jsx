@@ -3,22 +3,28 @@ import "./nav.css";
 import photo from "../photos/murat-foto.jpg";
 
 const Nav = () => {
-  const [activeClass, setActiveClass] = useState("home");
-  const [indicatorWidth, setİndicatorWidth] = useState(0);
-  const [currentThreshold, setCurrentThreshold] = useState(0.9);
 
+  const [activeClass, setActiveClass] = useState("home");
+  const [indicatorWidth, setIndicatorWidth] = useState(0);
+  const [currentThreshold, setCurrentThreshold] = useState(0.3);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const scroll = useRef(false);
 
   const handleClick = (e, item, index) => {
     e.preventDefault();
     setActiveClass(item);
-    setİndicatorWidth(index * 70);
+    setIndicatorWidth(index * 70);
+    scroll.current=true;
     document.getElementById(item).scrollIntoView({
-      behavior: "instant",
-    });
+      behavior: "smooth",
+    })
+    setTimeout(()=>{
+      scroll.current=false;
+      console.log("scrolled")
+    },600)
+
   };
 
-
-  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,11 +34,9 @@ const Nav = () => {
         setIsScrolled(false);
       }
     };
-
     window.addEventListener("scroll", handleScroll);
-
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+    window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -40,59 +44,64 @@ const Nav = () => {
 
   useEffect(() => {
     const boxElements = document.querySelectorAll(".deneme");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry, index) => {
-          console.log("entry: ",entry.target.id,"class: ", activeClass)
-   
-            boxElements.forEach((item, index) => {
-              if (item === entry.target) {
-                  setİndicatorWidth(index * 70);
-                  setActiveClass(entry.target.id);
-              }
-            });
-        });
-      },
-      { threshold: currentThreshold}
-    );
-    boxElements.forEach((card) => {
-      observer.observe(card);
-    });
-  }, [windowWidth]);
+    
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry, index) => {
+              boxElements.forEach((item, index) => {
+                  console.log("58. satr")
+                  if ( entry.isIntersecting && item === entry.target) {
+                    setIndicatorWidth(prev => !scroll.current ? index * 70 : prev);
+                    setActiveClass( prev => !scroll.current ? entry.target.id : prev);
+                  }
+              });
+          });
+        },
+        {  threshold:currentThreshold }
+      );
 
+      boxElements.forEach((card) => {
+        observer.observe(card);
+      });
+  }, []);
 
   useEffect(()=>{
-    console.log('width: ', windowWidth.current);
     if(windowWidth.current < 768){
         setCurrentThreshold(0.5)
     }
-  },[window])
+  },[windowWidth])
+
+  const data = [
+    {
+      title:"home",
+      icon:<i class="fa-solid fa-house-chimney"></i>
+    },
+    {
+      title:"projects",
+      icon:<i class="fa-solid fa-laptop-code"></i>
+    },
+    {
+      title:"skills",
+      icon:<i class="fa-brands fa-react"></i>
+    },
+    {
+      title:"contact",
+      icon:<i class="fa-solid fa-envelope-circle-check"></i>
+    },
+  ]
 
   return (
     <div className={isScrolled ? "nav scrolled" : "nav"}>
       <img src={photo} alt="" />
       <div className="nav-right">
         <ul>
-          <li className={activeClass === "home" ? "list active" : "list"}>
-            <a onClick={(e) => handleClick(e, "home", 0)} href="#home">
-              <i class="fa-solid fa-house-chimney"></i>
-            </a>
-          </li>
-          <li className={activeClass === "projects" ? "list active" : "list"}>
-            <a onClick={(e) => handleClick(e, "projects", 1)} href="#projects">
-              <i class="fa-solid fa-laptop-code"></i>
-            </a>
-          </li>
-          <li className={activeClass === "skills" ? "list active" : "list"}>
-            <a onClick={(e) => handleClick(e, "skills", 2)} href="#skills">
-              <i class="fa-brands fa-react"></i>
-            </a>
-          </li>
-          <li className={activeClass === "contact" ? "list active" : "list"}>
-            <a onClick={(e) => handleClick(e, "contact", 3)} href="#contact">
-              <i class="fa-solid fa-envelope-circle-check"></i>
-            </a>
-          </li>
+          { data.map((item, index) => (
+              <li className={activeClass === item.title ? "list active" : "list"}>
+                <a onClick={(e) => handleClick(e, item.title, index)} href={`#${item.title}`}>
+                  {item.icon}
+                </a>
+            </li>
+          )) }
           <div
             cite={activeClass}
             style={{ left: `${indicatorWidth}px` }}

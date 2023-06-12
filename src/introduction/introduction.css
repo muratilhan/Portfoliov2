@@ -15,8 +15,6 @@
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    
-    
 }
 .introduction-main img{
     width: 250px;
@@ -26,14 +24,15 @@
 .intro-icon-container{
     display: flex;
     list-style: none;
-    gap: 3rem;
-    
+    gap: 3rem; 
 }
+
+
+
 .intro-icon-container li i{
     color:rgb(255, 255, 255);
     font-size: 36px;
 }
-
 
 .content {
     font-size: 40px;
@@ -65,8 +64,15 @@
         margin: 0;
         margin-top: 5rem;
         font-size: 30px;
-
     }
+    .intro-icon-container li{
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        background-color: red;
+    }
+    
+    
 }  
 @media(max-width:1200px){
     .introduction{
