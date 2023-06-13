@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./nav.css";
-import logo from '../photos/favicon.png'
+import logo from '../photos/logov3.jpg'
 
 
 const Nav = () => {

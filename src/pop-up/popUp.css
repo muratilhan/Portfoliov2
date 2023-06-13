@@ -23,7 +23,7 @@ body.active-modal {
 }
 
 .overlay {
-    background: rgba(49,49,49,0.8);
+    background: #070916;
 }
 .modal-content {
     width: 60%;
@@ -40,7 +40,7 @@ body.active-modal {
     right: 30px;
     top: 30px;
     font-size: 24px;
-    color:rgb(60, 255, 0);
+    color:rgb(255, 0, 0);
 }
 .close-modal:hover{
     cursor: pointer;

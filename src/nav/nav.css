@@ -14,7 +14,7 @@
     height: min-content;
 }
 .nav img{
-    height: 45px;
+    height: 70px;
 }
 .nav ul{
     list-style: none;
@@ -35,7 +35,7 @@
     justify-content: center;
 }
 .nav ul li a{
-    color:rgb(237, 237, 237);
+    color:White;
     height: 100%;
     position: relative;
     display: flex;
@@ -47,9 +47,7 @@
     flex-direction: column;
     transition: all .3s ease;
 }
-.nav ul li .active a{
-    color:White;
-}
+
 .nav ul .indicator {
     position: absolute;
     width: 70px;
@@ -87,7 +85,24 @@
 @media(max-width:768px){
  
     .nav img{
-        height: 40px
+        height: 60px
     }
-    
+    .nav{
+        width: 100%;
+        height: 70px;
+    }
+    .nav ul .indicator::after{
+        height: 90%;
+    }
+    .nav ul li a{
+        font-size: 20px;
+        height: 50%;
+    }
+    .nav ul .indicator::after{
+        font-size: 14px;
+        top:0;
+        background: linear-gradient(to bottom,  rgba(255, 255, 255, 0.5), rgba(255,255,255,.1));
+        clip-path: polygon(20% 0, 80% 0, 100% 100%, 0% 100%);
+    }
+   
 }
