@@ -29,7 +29,7 @@ const Intoduction = () => {
           <ul className='intro-icon-container'>
             <a href="https://github.com/muratilhan" target='_blank'><li><i className="fa-brands fa-github"></i></li></a>
             <a href="https://www.linkedin.com/in/murat-ilhan-2762b8219/" target='_blank'><li><i className="fa-brands fa-linkedin"></i></li></a>
-            <a href="https://www.instagram.com/" target='_blank'><li><i className="fa-brands fa-instagram"></i></li></a>
+            <a href="https://www.instagram.com/muratilhan.08/" target='_blank'><li><i className="fa-brands fa-instagram"></i></li></a>
           </ul>
           <img src={photo} alt="" />
         </div>

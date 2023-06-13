@@ -49,7 +49,6 @@ const Nav = () => {
         (entries) => {
           entries.forEach((entry, index) => {
               boxElements.forEach((item, index) => {
-                  console.log("58. satr")
                   if ( entry.isIntersecting && item === entry.target) {
                     setIndicatorWidth(prev => !scroll.current ? index * 70 : prev);
                     setActiveClass( prev => !scroll.current ? entry.target.id : prev);
@@ -101,7 +100,7 @@ const Nav = () => {
                   {item.icon}
                 </a>
             </li>
-          )) }
+          ))}
           <div
             cite={activeClass}
             style={{ left: `${indicatorWidth}px` }}
