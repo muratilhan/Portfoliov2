@@ -14,8 +14,9 @@
     height: min-content;
 }
 .nav img{
-    height: 70px;
+    height: 60px;
 }
+
 .nav ul{
     list-style: none;
     position: relative;
@@ -24,7 +25,18 @@
     margin: 0;
     padding: 0;
 }
+.rotate-img {
+    animation: rotate 15s linear infinite; /* Dönme hızı ve stilini ayarlayın */
+}
 
+@keyframes rotate {
+    from {
+        transform: rotate(0deg); /* Başlangıç açısı */
+    }
+    to {
+        transform: rotate(360deg); /* Bitiş açısı */
+    }
+}
 
 .nav ul li{
     position: relative;
