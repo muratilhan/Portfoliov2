@@ -36,7 +36,7 @@ const Projects = ({toggleModal, setImgSource}) => {
               URL:{" "}
               <a style={{ color: "white" }} href={project.url} target="_blank">
                 {" "}
-                {project.url}{" "}
+                {project.domain}{" "}
               </a>
             </span>
           </div>
