@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./nav.css";
 import logo from '../photos/logoRing.jpg'
+import pp from '../photos/photoThE.jpg'
 
 
 const Nav = () => {
@@ -92,7 +93,7 @@ const Nav = () => {
 
   return (
     <div className={isScrolled ? "nav scrolled" : "nav"}>
-      <img src={logo} className="rotate-img" alt="" />
+      <img src={pp} className="img" alt="" />
       <div className="nav-right">
         <ul>
           { data.map((item, index) => (

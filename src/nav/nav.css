@@ -25,17 +25,11 @@
     margin: 0;
     padding: 0;
 }
-.rotate-img {
-    animation: rotate 15s linear infinite; /* Dönme hızı ve stilini ayarlayın */
+.img {
+    border-radius: 50%;
 }
-
-@keyframes rotate {
-    from {
-        transform: rotate(0deg); /* Başlangıç açısı */
-    }
-    to {
-        transform: rotate(360deg); /* Bitiş açısı */
-    }
+.img:hover{
+    cursor: pointer;
 }
 
 .nav ul li{
